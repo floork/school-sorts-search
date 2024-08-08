@@ -12,7 +12,7 @@ pkgs.mkShell {
     pkgs.qt6.qtsvg
     pkgs.qt6.qtdeclarative
     pkgs.qt6.qttools.dev
-    pkgs.gcc # Replace stdenv.cc with gcc
+    pkgs.gcc # Use gcc to include necessary C++ libraries
   ];
 
   shellHook = ''
