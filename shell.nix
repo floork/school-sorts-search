@@ -11,7 +11,8 @@ pkgs.mkShell {
     pkgs.qt6.qttools
     pkgs.qt6.qtsvg
     pkgs.qt6.qtdeclarative
-    pkgs.qt6.qttools.dev # Ensure Qt Designer is included
+    pkgs.qt6.qttools.dev
+    pkgs.gcc # Replace stdenv.cc with gcc
   ];
 
   shellHook = ''

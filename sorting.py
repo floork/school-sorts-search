@@ -73,4 +73,43 @@ def quickSort(array, low, high):
  
         # Recursive call on the right of pivot
         quickSort(array, pi + 1, high)
- 
+
+# Function to merge two sorted arrays
+def merge(arr1, arr2):
+    i = 0
+    j = 0
+    # Array to store the merged sorted array
+    result = []
+    while(i < len(arr1) and j < len(arr2)):
+        # If arr1[i] is smaller than arr2[j], push arr1[i] into the result and move to the next element in arr1
+        if arr2[j] > arr1[i]:
+            result.append(arr1[i])
+            i += 1
+        # If arr2[j] is smaller than arr1[i], push arr2[j] into the result and move to the next element in arr2
+        else:
+            result.append(arr2[j])
+            j += 1
+
+    # Push the remaining elements of arr1, if any
+    while(i < len(arr1)):
+        result.append(arr1[i])
+        i += 1
+        # Push the remaining elements of arr2, if any
+    while(j < len(arr2)):
+        result.append(arr2[j])
+        j += 1
+
+    return result
+
+
+# Function to sort arr using merge sort
+def mergeSort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr)//2
+    # Sort the left half
+    left = mergeSort(arr[:mid])
+    # Sort the right half
+    right = mergeSort(arr[mid:])
+
+    return merge(left, right)
