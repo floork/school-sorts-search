@@ -22,6 +22,9 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="maximum">
+    <number>10000</number>
+   </property>
   </widget>
   <widget class="QListWidget" name="ls_unsorted">
    <property name="geometry">
@@ -183,7 +186,7 @@
     <string/>
    </property>
    <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QPushButton" name="pb_default_sort">
@@ -282,5 +285,161 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>sp_input</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>Form</receiver>
+   <slot>get_random()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>722</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>722</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_update_stats</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>show_stats()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>779</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>824</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_default_sort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>def_sort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>822</x>
+     <y>143</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_bubble_sort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>bubble_sort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>742</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>826</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_quick_sort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>quick_sort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>731</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>823</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_selection_sort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>selection_sort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>772</x>
+     <y>251</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>826</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_merge_sort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>merge_sort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>722</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>812</x>
+     <y>318</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pb_linear_search</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>linear_search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>504</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>649</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>groupBox</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>binary_search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>641</x>
+     <y>649</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>get_random()</slot>
+  <slot>show_stats()</slot>
+  <slot>def_sort()</slot>
+  <slot>bubble_sort()</slot>
+  <slot>quick_sort()</slot>
+  <slot>selection_sort()</slot>
+  <slot>merge_sort()</slot>
+  <slot>linear_search()</slot>
+  <slot>binary_search()</slot>
+ </slots>
 </ui>
