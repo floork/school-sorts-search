@@ -4,11 +4,8 @@ import sorting
 import searching
 
 from PyQt6 import QtWidgets, uic
-import sys
-import random
-
-def getRandList(amount: int, min: int = -10000, max: int = 10000):
-    return [random.randint(min, max) for _ in range(amount)]
+from typing import List
+from random_list import get_rand_list
 
 
 class MainWindow(QtWidgets.QWidget):
@@ -24,14 +21,23 @@ class MainWindow(QtWidgets.QWidget):
         self._search_input_obj = self.le_serach_input
         self._search_output_obj = self.lbl_search_output
 
-        self._unsorted_list = getRandList(self._input_obj.value())
+        self._unsorted_list = get_rand_list(self._input_obj.value())
         self._sorted_list = []
         self.ls_unsorted.addItems([str(num) for num in self._unsorted_list])
 
         self._took_time_sort = 0
 
+    def __output_sort(self, sorted_list: List[int]):
+        self._sorted_list_obj.clear()
+        self._sorted_list = [str(num) for num in sorted_list]
+        if not self._ascending_obj.isChecked():
+            self._sorted_list_obj.addItems(reversed(self._sorted_list))
+            return
+        self._sorted_list_obj.addItems(self._sorted_list)
+        self.show_stats()
+
     def get_random(self):
-        self._unsorted_list = getRandList(self._input_obj.value())
+        self._unsorted_list = get_rand_list(self._input_obj.value())
 
         self._unsorted_list_obj.clear()
         self._unsorted_list_obj.addItems([str(num) for num in self._unsorted_list])
@@ -55,65 +61,35 @@ class MainWindow(QtWidgets.QWidget):
         sorted_list.sort()
         self._took_time_sort = time.time() - start_time
 
-        self._sorted_list_obj.clear()
-        self._sorted_list = [str(num) for num in sorted_list]
-        if not self._ascending_obj.isChecked():
-            self._sorted_list_obj.addItems(reversed(self._sorted_list))
-            return
-        self._sorted_list_obj.addItems(self._sorted_list)
-        self.show_stats()
+        self.__output_sort(sorted_list)
 
     def bubble_sort(self):
         start_time = time.time()
         sorted_list = sorting.bubble_sort(self._unsorted_list)
         self._took_time_sort = time.time() - start_time
 
-        self._sorted_list_obj.clear()
-        self._sorted_list = [str(num) for num in sorted_list]
-        if not self._ascending_obj.isChecked():
-            self._sorted_list_obj.addItems(reversed(self._sorted_list))
-            return
-        self._sorted_list_obj.addItems(self._sorted_list)
-        self.show_stats()
+        self.__output_sort(sorted_list)
 
     def quick_sort(self):
         start_time = time.time()
         sorted_list = sorting.quick_sort(self._unsorted_list)
         self._took_time_sort = time.time() - start_time
 
-        self._sorted_list_obj.clear()
-        self._sorted_list = [str(num) for num in sorted_list]
-        if not self._ascending_obj.isChecked():
-            self._sorted_list_obj.addItems(reversed(self._sorted_list))
-            return
-        self._sorted_list_obj.addItems(self._sorted_list)
-        self.show_stats()
+        self.__output_sort(sorted_list)
 
     def selection_sort(self):
         start_time = time.time()
         sorted_list = sorting.selection_sort(self._unsorted_list)
         self._took_time_sort = time.time() - start_time
 
-        self._sorted_list_obj.clear()
-        self._sorted_list = [str(num) for num in sorted_list]
-        if not self._ascending_obj.isChecked():
-            self._sorted_list_obj.addItems(reversed(self._sorted_list))
-            return
-        self._sorted_list_obj.addItems(self._sorted_list)
-        self.show_stats()
+        self.__output_sort(sorted_list)
 
     def merge_sort(self):
         start_time = time.time()
         sorted_list = sorting.merge_sort(self._unsorted_list)
         self._took_time_sort = time.time() - start_time
 
-        self._sorted_list_obj.clear()
-        self._sorted_list = [str(num) for num in sorted_list]
-        if not self._ascending_obj.isChecked():
-            self._sorted_list_obj.addItems(reversed(self._sorted_list))
-            return
-        self._sorted_list_obj.addItems(self._sorted_list)
-        self.show_stats()
+        self.__output_sort(sorted_list)
 
     def linear_search(self):
         start_time = time.time()

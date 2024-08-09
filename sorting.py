@@ -1,5 +1,6 @@
 from typing import List
 
+
 def bubble_sort(arr: List[int]) -> List[int]:
     for n in range(len(arr) - 1, 0, -1):
         swapped = False
@@ -11,6 +12,7 @@ def bubble_sort(arr: List[int]) -> List[int]:
             break
     return arr
 
+
 def selection_sort(array: List[int]) -> List[int]:
     size = len(array)
     for ind in range(size):
@@ -20,6 +22,7 @@ def selection_sort(array: List[int]) -> List[int]:
                 min_index = j
         array[ind], array[min_index] = array[min_index], array[ind]
     return array
+
 
 def partition(array: List[int], low: int, high: int) -> int:
     pivot = array[high]
@@ -31,15 +34,18 @@ def partition(array: List[int], low: int, high: int) -> int:
     array[i + 1], array[high] = array[high], array[i + 1]
     return i + 1
 
+
 def _quick_sort(array: List[int], low: int, high: int):
     if low < high:
         pi = partition(array, low, high)
         _quick_sort(array, low, pi - 1)
         _quick_sort(array, pi + 1, high)
 
+
 def quick_sort(array: List[int]) -> List[int]:
     _quick_sort(array, 0, len(array) - 1)
     return array
+
 
 def merge(arr1: List[int], arr2: List[int]) -> List[int]:
     i, j = 0, 0
@@ -58,6 +64,7 @@ def merge(arr1: List[int], arr2: List[int]) -> List[int]:
         result.append(arr2[j])
         j += 1
     return result
+
 
 def merge_sort(arr: List[int]) -> List[int]:
     if len(arr) <= 1:

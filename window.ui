@@ -415,18 +415,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>groupBox</sender>
+   <sender>pb_binary_search</sender>
    <signal>clicked()</signal>
    <receiver>Form</receiver>
    <slot>binary_search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>647</x>
-     <y>547</y>
+     <x>598</x>
+     <y>487</y>
     </hint>
     <hint type="destinationlabel">
-     <x>641</x>
-     <y>649</y>
+     <x>590</x>
+     <y>646</y>
     </hint>
    </hints>
   </connection>
