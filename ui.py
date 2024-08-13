@@ -3,13 +3,14 @@ import time
 import sorting
 import searching
 
-from PyQt6 import QtWidgets, uic
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.uic as uic
 from typing import List
 from random_list import get_rand_list
 
 
 class MainWindow(QtWidgets.QWidget):
-    def __init__(self, parent= None ) -> None:
+    def __init__(self, parent=None) -> None:
         super(MainWindow, self).__init__(parent)
         uic.loadUi("window.ui", self)
 
@@ -53,7 +54,9 @@ class MainWindow(QtWidgets.QWidget):
         min_list = min(self._unsorted_list)
         avg_list = sum_list / field_count
 
-        self._stats_obj.setText(f"Field count: {field_count} \nSum: {sum_list} \nMax: {max_list} \nMin: {min_list} \nAvg: {avg_list} \nTook: {self._took_time_sort}s")
+        self._stats_obj.setText(
+            f"Field count: {field_count} \nSum: {sum_list} \nMax: {max_list} \nMin: {min_list} \nAvg: {avg_list} \nTook: {self._took_time_sort}s"
+        )
 
     def def_sort(self):
         start_time = time.time()
@@ -114,4 +117,3 @@ class MainWindow(QtWidgets.QWidget):
             index = f"{e}"
 
         self._search_output_obj.setText(index)
-
